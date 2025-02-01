@@ -4,7 +4,7 @@ import Button from '@/components/common/Button';
 
 const Header = () => {
   return (
-    <div className="p-4 flex items-center justify-between shadow bg-white fixed top-0 w-full">
+    <header className="header">
       {/* Placeholder */}
       <div className="hidden lg:block grow-1" />
       {/* Branding */}
@@ -15,7 +15,7 @@ const Header = () => {
           <MdOutlineLightMode fontSize={28} />
         </Button>
       </div>
-    </div>
+    </header>
   );
 };
 

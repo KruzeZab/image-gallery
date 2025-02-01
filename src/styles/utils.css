@@ -1,0 +1,27 @@
+.layout-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.transition-linear {
+  @apply transition-all duration-100 ease-linear;
+}
+
+.transition-linear-slow {
+  @apply transition-all duration-200 ease-linear;
+}
+
+.input-base {
+  @apply bg-white border border-gray-300 font-normal text-gray-800 rounded-lg focus:outline-0 focus:ring-blue-500 focus:border-blue-500 block w-full placeholder:text-gray-500;
+}
+
+.input-focus {
+  @apply focus:outline-0 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.absolute-vertical-center {
+  @apply absolute top-1/2 transform -translate-y-1/2;
+}
+
+.transform-scale {
+  @apply transform group-hover:scale-110;
+}

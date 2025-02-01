@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MdSearch } from 'react-icons/md';
 
 import Header from '@/components/Header';
+import ImageList from '@/components/ImageList';
 import TextInput from '@/components/common/TextInput';
 
 const App = () => {
@@ -24,8 +25,12 @@ const App = () => {
             startIcon={<MdSearch fontSize={21} className="text-gray-600" />}
             value={text}
             onChange={handleTextChange}
+            className="p-2 pl-10"
           />
         </div>
+
+        {/* Image List */}
+        <ImageList />
       </div>
     </div>
   );
