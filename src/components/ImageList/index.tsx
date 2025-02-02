@@ -1,23 +1,58 @@
+import { lazy, useCallback, useState } from 'react';
+
+import {
+  DEFAULT_PAGE_START,
+  DEFAULT_IMAGE_SKELETON_COUNT,
+} from '@/constants/common';
+
+import useFetchImages from '@/hooks/useFetchImages';
+import useInfiniteScroll from '@/hooks/useInfiniteScroll';
+
+import { ImageSkeleton } from '@/components/Skeleton';
+
+const ImageCard = lazy(() => import('@/components/ImageList/ImageCard'));
+
 const ImageList = () => {
+  const [page, setPage] = useState(DEFAULT_PAGE_START);
+
+  const { isLoading, data: images, hasMore } = useFetchImages(page);
+
+  const fetchNextPage = useCallback(() => {
+    if (hasMore && !isLoading) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  }, [hasMore, isLoading, setPage]);
+
+  const lastElementRef = useInfiniteScroll(fetchNextPage, isLoading, hasMore, {
+    threshold: 0.1,
+    rootMargin: '50px',
+  });
+
+  const lastImageIndex = images.length - 1;
+
   return (
-    <div className="max-w-6xl mx-auto layout-grid mt-8">
-      {Array.from(new Array(5)).map((_, index) => (
-        <div
-          key={index}
-          className="card group tranition-linear-slow overflow-hidden"
-        >
-          <div className="h-[200px] overflow-hidden">
-            <img
-              src="https://picsum.photos/300/200"
-              alt="alternative"
-              className="card-image group-hover:scale-105 transition-linear-slow"
-            />
-          </div>
-          <div className="p-2">
-            <h4>William Jackson</h4>
-          </div>
+    <div>
+      {!!images.length && (
+        <div className="max-w-6xl mx-auto layout-grid my-8">
+          {images.map((image, index) => (
+            <div
+              key={image.download_url}
+              className="fade-in"
+              ref={index === lastImageIndex ? lastElementRef : null}
+            >
+              <ImageCard image={image} />
+            </div>
+          ))}
         </div>
-      ))}
+      )}
+
+      {isLoading && (
+        <div className="max-w-6xl mx-auto layout-grid my-8">
+          {[...Array(DEFAULT_IMAGE_SKELETON_COUNT)].map((_, index) => (
+            <ImageSkeleton key={index} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
