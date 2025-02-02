@@ -11,7 +11,12 @@ const Header = () => {
       <h1 className="text-3xl text-center lg:grow-2">Image Gallery</h1>
       {/* Theme Toggle */}
       <div className="lg:grow-1">
-        <Button type="button" className="block" title="Toggle theme">
+        <Button
+          type="button"
+          className="block"
+          title="Toggle theme"
+          aria-label="Toggle theme"
+        >
           <MdOutlineLightMode fontSize={28} />
         </Button>
       </div>

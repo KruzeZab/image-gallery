@@ -1,15 +1,18 @@
 import { useState } from 'react';
-import { MdSearch } from 'react-icons/md';
+
+import useDebounce from '@/hooks/useDebounce';
 
 import Header from '@/components/Header';
 import ImageList from '@/components/ImageList';
-import TextInput from '@/components/common/TextInput';
+import Searchbox from './components/Searchbox';
 
 const App = () => {
-  const [text, setText] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
+  const debouncedText = useDebounce(searchTerm);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
   };
 
   return (
@@ -17,20 +20,10 @@ const App = () => {
       <Header />
       <div className="container mx-auto mt-6 px-2 lg:px-0">
         {/* Search Box */}
-        <div className="max-w-2xl mx-auto">
-          <TextInput
-            type="text"
-            placeholder="Search by author..."
-            required
-            startIcon={<MdSearch fontSize={21} className="text-gray-600" />}
-            value={text}
-            onChange={handleTextChange}
-            className="p-2 pl-10"
-          />
-        </div>
+        <Searchbox searchTerm={searchTerm} handleSearch={handleSearch} />
 
         {/* Image List */}
-        <ImageList />
+        <ImageList text={debouncedText} />
       </div>
     </div>
   );
