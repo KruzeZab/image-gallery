@@ -16,7 +16,12 @@ const Searchbox = (props: SearchboxProps) => {
         type="text"
         placeholder="Search by author..."
         required
-        startIcon={<MdSearch fontSize={21} className="text-gray-600" />}
+        startIcon={
+          <MdSearch
+            fontSize={21}
+            className="text-gray-600 dark:text-gray-300"
+          />
+        }
         value={searchTerm}
         onChange={handleSearch}
         className="p-2 pl-10"

@@ -16,9 +16,9 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
-      <div className="container mx-auto mt-6 px-2 lg:px-0">
+      <div className="container mx-auto pt-10 lg:pt-14 px-2 lg:px-0">
         {/* Search Box */}
         <Searchbox searchTerm={searchTerm} handleSearch={handleSearch} />
 

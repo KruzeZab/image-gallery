@@ -1,18 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 @import 'tailwindcss';
 @import './styles/utils.css';
 @import './styles/layers.css';
 
+:root {
+  --bg-dark: #101828;
+}
+
 body {
+  padding-top: 40px;
   background-color: #f4f4f4;
-  padding-top: 68px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-dark);
+  }
 }
 
 .header {
-  @apply p-4 flex items-center justify-between shadow bg-white fixed top-0 w-full z-50;
+  @apply p-4 flex items-center justify-between shadow bg-white fixed top-0 w-full z-50 dark:bg-gray-800 dark:text-white;
 }
 
 .card {
-  @apply bg-white rounded-lg shadow w-full cursor-pointer hover:shadow-lg;
+  @apply bg-white rounded-lg shadow w-full cursor-pointer hover:shadow-lg dark:bg-gray-800 dark:text-white;
 }
 
 .card-image {

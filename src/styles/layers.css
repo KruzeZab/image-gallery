@@ -1,3 +1,11 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  * {
+    font-family: 'Poppins', serif;
+  }
+}
+
 @layer utilities {
   @keyframes fadeIn {
     from {

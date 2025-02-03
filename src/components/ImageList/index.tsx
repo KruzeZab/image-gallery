@@ -60,7 +60,7 @@ const ImageList = (props: ImageListProps) => {
     <div>
       <div
         className={classNames('max-w-6xl mx-auto layout-grid', {
-          'my-8': !!filteredImages.length,
+          'my-6': !!filteredImages.length,
         })}
       >
         {filteredImages.map((image, index) => (
@@ -75,7 +75,7 @@ const ImageList = (props: ImageListProps) => {
       </div>
 
       {isLoading && (
-        <div className="max-w-6xl mx-auto layout-grid my-8">
+        <div className="max-w-6xl mx-auto layout-grid my-6">
           {[...Array(DEFAULT_IMAGE_SKELETON_COUNT)].map((_, index) => (
             <ImageSkeleton key={index} />
           ))}
