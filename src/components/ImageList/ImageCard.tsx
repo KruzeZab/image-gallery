@@ -29,7 +29,7 @@ const ImageCard = (props: ImageCardProps) => {
           onLoad={handleImageLoad}
         />
       </div>
-      <div className="p-2">
+      <div className="p-2 py-3">
         <h4 className="group-hover:text-gray-600 group-hover:dark:text-gray-400">
           {image.author}
         </h4>
