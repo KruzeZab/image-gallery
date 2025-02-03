@@ -2,6 +2,10 @@
 
 Responsive image gallery that fetches images from the Picsum API.
 
+### Live Demo
+
+https://image-gallery-demo-123.netlify.app/
+
 ### Features
 
 - **Responsive Design** – Adjusts seamlessly to different screen sizes.
