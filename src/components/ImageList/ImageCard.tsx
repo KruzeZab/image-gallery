@@ -30,7 +30,9 @@ const ImageCard = (props: ImageCardProps) => {
         />
       </div>
       <div className="p-2">
-        <h4>{image.author}</h4>
+        <h4 className="group-hover:text-gray-600 group-hover:dark:text-gray-400">
+          {image.author}
+        </h4>
       </div>
     </div>
   );

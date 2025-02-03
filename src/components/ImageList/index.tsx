@@ -64,13 +64,16 @@ const ImageList = (props: ImageListProps) => {
         })}
       >
         {filteredImages.map((image, index) => (
-          <div
+          <a
             key={image.url}
             className="fade-in"
             ref={index === lastImageIndex ? lastElementRef : null}
+            target="_blank"
+            href={image.url}
+            rel="noreferrer"
           >
             <ImageCard image={image} />
-          </div>
+          </a>
         ))}
       </div>
 
