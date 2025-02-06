@@ -1,5 +1,12 @@
 import classNames from 'classnames';
-import { lazy, startTransition, useCallback, useMemo, useState } from 'react';
+import {
+  lazy,
+  memo,
+  startTransition,
+  useCallback,
+  useMemo,
+  useState,
+} from 'react';
 
 import {
   DEFAULT_PAGE_START,
@@ -88,4 +95,4 @@ const ImageList = (props: ImageListProps) => {
   );
 };
 
-export default ImageList;
+export default memo(ImageList);

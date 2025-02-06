@@ -4,7 +4,7 @@ import useDebounce from '@/hooks/useDebounce';
 
 import Header from '@/components/Header';
 import ImageList from '@/components/ImageList';
-import Searchbox from './components/Searchbox';
+import Searchbox from '@/components/Searchbox';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
